@@ -1,1 +1,1 @@
-# ChromeExt
+本项目主要尝试chrome的api开发，熟悉api及语法。

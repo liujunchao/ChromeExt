@@ -1,0 +1,20 @@
+{
+    "manifest_version":2,
+    "name":"chrome api practice",
+    "description":"demo project to practice chrome api",
+    "icons":{
+        "16":"images/icon16.png",
+        "48":"",
+        "128":""
+    },
+    "browser_action":{
+        "default_icon":{
+            "19":"images/icon19.png"
+        },
+        "default_title":"chrome api",
+        "default_popup":"popup.html"
+    },
+    "permissions":[
+        
+    ]
+}
