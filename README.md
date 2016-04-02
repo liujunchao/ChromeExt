@@ -2,3 +2,6 @@
 1，配置background->scripts->JS路径  可配置CHROME后台运行脚本
 2, 配置permissions->contextMenus可以配置生成右键菜单权限
 3, ContentScript，可与当前页面在同一个空间，而BackgroundScript则是隔离开的。在配置文件中加入content_scripts项。
+4, chrome.runtime.sendMessage可由Content.js页面发送消息给background.js页面,background.js则可通过chrome.runtime.onMessage.addListener监听
+5, webkitNotifications无法在CHROME使用。
+6, permissions中加bookmarks可以增加标签的访问权限。chrome.bookmarks.create 创建标签。

@@ -2,7 +2,7 @@ var seconds = 0;
 setInterval(function() {
    console.log("I have already running :"+seconds);
    seconds++;
-}, 1000);
+}, 100000);
 
 
 chrome.contextMenus.create({
@@ -31,10 +31,38 @@ chrome.contextMenus.create({
 
 chrome.contextMenus.create({
     type:"normal",
-    title:"menu e",
+    title:"添加到书签",
     id:"e",
-    parentId:'a'
+    parentId:'a',
+    onclick:function (info,tab) { 
+        chrome.bookmarks.create({
+            parentId:'1',
+            index:0,
+            title:tab.title,
+            url:tab.url
+        },function (bookmark) {
+            console.log(bookmark)
+        });
+    }
 });
+
+chrome.contextMenus.create({
+    type:"normal",
+    title:"移除书签",
+    id:"g",
+    parentId:'a',
+    onclick:function (info,tab) { 
+        chrome.bookmarks.create({
+            parentId:'1',
+            index:0,
+            title:tab.title,
+            url:tab.url
+        },function (bookmark) {
+            console.log(bookmark)
+        });
+    }
+});
+
 
 chrome.contextMenus.create({
     type:"normal",
@@ -51,6 +79,7 @@ chrome.contextMenus.create({
 });
 //配置对选中的文本右键的时候显示以下这个菜单
 chrome.contextMenus.create({
+    id:'selectText',
     type:"normal",
     title:"show after selecting text",
     contexts:["selection"],
@@ -58,3 +87,17 @@ chrome.contextMenus.create({
         alert("select text "+info.selectionText);
     }
 });
+
+
+chrome.runtime.onMessage.addListener(function (message,sender,sendResponse) {
+    console.log("receive message from content.js,"+message); 
+    chrome.contextMenus.update('selectText',{
+        title:"show after select "+message
+    });
+   
+});
+
+chrome.bookmarks.getTree(function (bookmarksArray) {
+    console.log(bookmarksArray);
+})
+
