@@ -18,7 +18,13 @@
             "scripts/background.js"
         ]
     },
+    "content_scripts":[
+      {
+         "matches": ["*://*/*"],
+         "js": ["js/content.js"]
+      }  
+    ],
     "permissions":[
-        
+        "contextMenus"
     ]
 }
