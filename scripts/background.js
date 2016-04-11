@@ -12,6 +12,24 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.create({
+    type:'normal',
+    title:'download all images',
+    onclick:function (info,tab) {
+        chrome.tabs.executeScript(tab.id,{file:'scripts/main.js'},function (results) {
+           if(results&& results[0]&& results[0].length){
+               results[0].forEach(function(url){
+                  chrome.downloads.download({
+                      url:url,
+                      conflictAction:'uniquify',
+                      saveAs:false
+                  });
+               });
+           } 
+        });
+    }
+})
+
+chrome.contextMenus.create({
     type:"radio",
     title:"menu b",
     id:"b",

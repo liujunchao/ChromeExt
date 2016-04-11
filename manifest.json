@@ -27,6 +27,8 @@
     "permissions":[
         "contextMenus",
         "notifications",
-        "bookmarks"
+        "bookmarks",
+        "activeTab",
+        "downloads"
     ]
 }

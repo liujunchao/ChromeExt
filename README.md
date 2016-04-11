@@ -5,3 +5,5 @@
 4, chrome.runtime.sendMessage可由Content.js页面发送消息给background.js页面,background.js则可通过chrome.runtime.onMessage.addListener监听
 5, webkitNotifications无法在CHROME使用。
 6, permissions中加bookmarks可以增加标签的访问权限。chrome.bookmarks.create 创建标签。
+7, chrome.tabs.executeScript可执行外部脚本（该外部脚本可访问文档元素），并得到执行结果。
+8， chrome.downloads.download可使用CHROME的下载器指定特定URL下载文件。
