@@ -8,3 +8,15 @@ window.onmouseup = function (params) {
       //   notification.show();
     }
 };
+
+
+window.onload = function (params) {
+    var allAs = document.querySelectorAll("a");
+     
+    for (var index = 0,len = allAs.length; index < len; index++) {
+        var element = allAs[index];
+        element.removeAttribute("href"); 
+        
+    }
+    
+}

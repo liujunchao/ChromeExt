@@ -117,5 +117,14 @@ chrome.runtime.onMessage.addListener(function (message,sender,sendResponse) {
 
 chrome.bookmarks.getTree(function (bookmarksArray) {
     console.log(bookmarksArray);
-})
+});
 
+chrome.contextMenus.create({
+    type:'normal',
+    title:'disable a links ',
+    onclick:function (info,tab) {
+        chrome.tabs.executeScript(tab.id,{file:'scripts/pagestyle.js'},function (results) {
+           
+        });
+    }
+})
